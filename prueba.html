@@ -3,27 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador con Fondo 3D de Nieve</title>
+    <title>Contador Sincronizado con el Banner</title>
     <style>
-        /* Estilo para cubrir toda la pantalla con el fondo 3D */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        /* El iframe que contiene el fondo de nieve */
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            z-index: -1; /* Asegura que el iframe esté en el fondo */
-        }
-
         /* Estilo para el banner */
         .banner-contador {
             width: 100%;
@@ -33,8 +14,7 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            position: relative; /* Para asegurarse de que el banner esté sobre el iframe */
-            z-index: 1;
+            position: relative;
         }
 
         /* Estilo del botón */
@@ -47,7 +27,17 @@
             border: none;
             border-radius: 5px;
             position: relative;
-            z-index: 1; /* El botón debe estar sobre el fondo */
+        }
+
+        /* Fondo 3D de nieve (iframe como fondo) */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: -1; /* El iframe estará en el fondo */
         }
     </style>
 </head>
@@ -56,11 +46,11 @@
     <!-- Incrustamos el iframe con el fondo de nieve -->
     <iframe src="https://xatayuda.github.io/snow3D/" frameborder="0"></iframe>
 
-    <h1 style="text-align: center; color: white; z-index: 1;">Contador de Cuenta Atrás</h1>
+    <h1 style="text-align: center; color: white;">Contador Sincronizado con el Banner</h1>
 
-    <!-- Banner con contador -->
+    <!-- Banner con contador (Este es el contador del banner) -->
     <div class="banner-contador" id="banner-contador">
-        <span id="contador-banner">10</span> <!-- Este es el contador del banner -->
+        <span id="contador-banner">10</span>
     </div>
 
     <!-- Botón que se actualizará con el mismo valor del contador -->
@@ -71,7 +61,7 @@
         const contadorBannerElement = document.getElementById('contador-banner');
         const botonContadorElement = document.getElementById('contador-boton');
 
-        // Contador inicial (puedes inicializarlo con cualquier valor)
+        // Extraemos el valor del contador desde el banner
         let contadorBanner = parseInt(contadorBannerElement.textContent);
 
         // Función que actualiza el valor del contador en el banner y en el botón
@@ -99,5 +89,6 @@
         // Inicializar el botón con el valor del contador al inicio
         actualizarContador();
     </script>
+
 </body>
 </html>
