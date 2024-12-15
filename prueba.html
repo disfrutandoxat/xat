@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script</title>
+    <title>Galería de Imágenes</title>
     <style>
         body {
             margin: 0;
@@ -18,8 +18,9 @@
         .header {
             text-align: center;
             margin-bottom: 20px;
-            padding: 20px;
-            background-color: #fff;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             width: 90%;
@@ -28,31 +29,45 @@
 
         .header h1 {
             margin: 0;
-            font-size: 2em;
-            color: #333;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffdd57;
         }
 
         .header p {
-            margin: 10px 0 20px;
+            margin: 15px 0 20px;
             font-size: 1.2em;
-            color: #666;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .header .divider {
+            width: 60px;
+            height: 4px;
+            background-color: #ffdd57;
+            margin: 15px auto;
+            border-radius: 2px;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .social-icons a {
             text-decoration: none;
-            color: #333;
-            font-size: 1.5em;
-            transition: color 0.3s;
+            color: #ffdd57;
+            font-size: 1.8em;
+            transition: transform 0.3s, color 0.3s;
         }
 
         .social-icons a:hover {
-            color: #0073e6;
+            transform: scale(1.2);
+            color: #fff;
         }
 
         .gallery {
@@ -81,17 +96,18 @@
 <body>
     <div class="header">
         <h1>Script</h1>
+        <div class="divider"></div>
         <p>Un astronauta es un viajero del infinito, un puente entre la tierra que amamos y el universo que soñamos. 🚀🌠</p>
         <div class="social-icons">
             <a href="https://www.instagram.com/alxxrams/" target="_blank" title="Instagram">
-🔵            </a>
+                🔵
+            </a>
             <a href="https://xat.com/ayuda" target="_blank" title="Chat">
                 💬
             </a>
         </div>
     </div>
     <div class="gallery">
-        <!-- Reemplaza estos enlaces con los de tus propias imágenes -->
         <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 1">
         <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 2">
         <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 3">
