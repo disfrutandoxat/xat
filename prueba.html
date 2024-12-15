@@ -3,102 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador Sincronizado con el Banner</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mi Galería de Fotos</title>
+    <!-- Enlace a Google Fonts para tipografía -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Estilos CSS -->
     <style>
-        /* Estilo para el banner */
-        .banner-contador {
-            width: 100%;
-            height: 80px;
-            background-color: lightblue;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            position: relative;
+        /* Reset de márgenes y padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Estilo del botón */
-        #contador-boton {
-            padding: 10px 20px;
-            font-size: 24px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            position: relative;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4; /* Fondo claro */
+            color: #333; /* Color de texto */
+            line-height: 1.6;
         }
 
-        /* Fondo 3D de nieve (iframe como fondo) */
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Título principal */
+        h1 {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Galería de fotos */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 3 columnas responsivas */
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05); /* Zoom al pasar el mouse */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
             width: 100%;
             height: 100%;
-            border: none;
-            z-index: -1; /* El iframe estará en el fondo */
+            object-fit: cover; /* Asegura que la imagen llene el contenedor */
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            opacity: 0.7; /* Efecto de desvanecimiento al pasar el mouse */
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer a {
+            color: #777;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #333;
         }
     </style>
 </head>
 <body>
 
-    <!-- Incrustamos el iframe con el fondo de nieve -->
-    <iframe src="https://xatayuda.github.io/snow3D/" frameborder="0"></iframe>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h1>Mi Galería de Fotos</h1>
 
-    <h1 style="text-align: center; color: white;">Contador Sincronizado con el Banner</h1>
+        <!-- Galería de fotos -->
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="foto1.jpg" alt="Foto 1">
+            </div>
+            <div class="gallery-item">
+                <img src="foto2.jpg" alt="Foto 2">
+            </div>
+            <div class="gallery-item">
+                <img src="foto3.jpg" alt="Foto 3">
+            </div>
+            <div class="gallery-item">
+                <img src="foto4.jpg" alt="Foto 4">
+            </div>
+            <div class="gallery-item">
+                <img src="foto5.jpg" alt="Foto 5">
+            </div>
+            <div class="gallery-item">
+                <img src="foto6.jpg" alt="Foto 6">
+            </div>
+            <!-- Agrega más imágenes aquí -->
+        </div>
 
-    <!-- Banner con contador (Este es el contador del banner) -->
-    <div class="banner-contador" id="banner-contador">
-        <span id="contador-banner">10</span> <!-- Este es el contador del banner -->
     </div>
 
-    <!-- Botón que se actualizará con el mismo valor del contador -->
-    <button id="contador-boton">Contador del banner: 10</button>
-
-    <script>
-        // Variables para el contador en el banner y el de tu página
-        const contadorBannerElement = document.getElementById('contador-banner');
-        const botonContadorElement = document.getElementById('contador-boton');
-
-        let contadorBanner = parseInt(contadorBannerElement.textContent); // Valor inicial del contador
-
-        // Variables para manejar los intervalos y el estado de los contadores
-        let intervalo, intervaloBanner;
-
-        // Función que actualiza el contador en el banner y en el botón
-        function actualizarContador() {
-            contadorBannerElement.textContent = contadorBanner;  // Actualizar el contador en el banner
-            botonContadorElement.textContent = "Contador del banner: " + contadorBanner;  // Actualizar el contador en el botón
-        }
-
-        // Función para realizar el cuenta atrás
-        function cuentaAtras() {
-            if (contadorBanner > 0) {
-                contadorBanner--; // Decrementamos el contador
-                actualizarContador(); // Actualizamos el valor en el banner y en el botón
-            } else {
-                clearInterval(intervalo); // Detenemos la cuenta atrás cuando llega a cero
-                alert("¡El contador ha llegado a cero!");
-            }
-        }
-
-        // Función para detectar si el contador en el banner ha empezado a contar
-        function detectarContadorBanner() {
-            // Si el contador en el banner ha comenzado (por ejemplo, es diferente a su valor inicial)
-            if (parseInt(contadorBannerElement.textContent) !== 10) {
-                contadorBanner = parseInt(contadorBannerElement.textContent); // Sincronizar con el valor del contador del banner
-                intervalo = setInterval(cuentaAtras, 1000); // Iniciar la cuenta atrás de tu página
-                clearInterval(intervaloBanner); // Detenemos la comprobación continua una vez iniciado el contador
-            }
-        }
-
-        // Intervalo para verificar si el contador en el banner ha comenzado a contar
-        intervaloBanner = setInterval(detectarContadorBanner, 1000); // Comprobar cada segundo si el contador ha comenzado
-
-        // Inicializar el botón con el valor del contador al inicio
-        actualizarContador();
-    </script>
+    <!-- Pie de página -->
+    <footer>
+        <p>Hecho con ❤️ por [Tu Nombre] | <a href="#">Contacto</a></p>
+    </footer>
 
 </body>
 </html>
