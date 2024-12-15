@@ -3,119 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Imágenes</title>
+    <title>Fondo GIF</title>
     <style>
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 800px;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #ffdd57;
-        }
-
-        .header p {
-            margin: 15px 0 20px;
-            font-size: 1.2em;
-            font-style: italic;
-            line-height: 1.5;
-        }
-
-        .header .divider {
-            width: 60px;
-            height: 4px;
-            background-color: #ffdd57;
-            margin: 15px auto;
-            border-radius: 2px;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            text-decoration: none;
-            color: #ffdd57;
-            font-size: 1.8em;
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .social-icons a:hover {
-            transform: scale(1.2);
-            color: #fff;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            width: 90%;
-            max-width: 1200px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            margin: 0; /* Elimina los márgenes por defecto */
+            padding: 0; /* Elimina los rellenos por defecto */
+            height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+            background-image: url('https://xatimg.com/image/UuIfFXxAlAOE.gif'); /* URL del GIF */
+            background-size: cover; /* Hace que el fondo cubra toda la pantalla */
+            background-repeat: no-repeat; /* Evita que se repita la imagen */
+            background-attachment: fixed; /* Fija el fondo al hacer scroll */
+            background-position: center; /* Centra la imagen de fondo */
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Script</h1>
-        <div class="divider"></div>
-        <p>Un astronauta es un viajero del infinito, un puente entre la tierra que amamos y el universo que soñamos. 🚀🌠</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/alxxrams/" target="_blank" title="Instagram">
-                🔵
-            </a>
-            <a href="https://xat.com/ayuda" target="_blank" title="Chat">
-                💬
-            </a>
-        </div>
-    </div>
-    <div class="gallery">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 1">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 2">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 3">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 4">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 5">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 6">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 7">
-        <img src="https://xatimg.com/image/dou978qGE6Wb.png" alt="Imagen 8">
-    </div>
+    <!-- Contenido opcional de la página -->
 </body>
 </html>
