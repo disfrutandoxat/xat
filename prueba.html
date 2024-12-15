@@ -56,16 +56,15 @@
         }
 
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             width: 90%;
             max-width: 1200px;
         }
 
         .gallery img {
-            width: 200px;
+            width: 100%;
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
