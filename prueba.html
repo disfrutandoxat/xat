@@ -50,26 +50,26 @@
 
     <!-- Banner con contador (Este es el contador del banner) -->
     <div class="banner-contador" id="banner-contador">
-        <span id="contador-banner">10</span>
+        <span id="contador-banner">10</span> <!-- Este es el contador del banner -->
     </div>
 
     <!-- Botón que se actualizará con el mismo valor del contador -->
     <button id="contador-boton">Contador del banner: 10</button>
 
     <script>
-        // Obtener el contador del banner y el botón
+        // Variables para el contador en el banner y el de tu página
         const contadorBannerElement = document.getElementById('contador-banner');
         const botonContadorElement = document.getElementById('contador-boton');
 
-        // Extraemos el valor del contador desde el banner
-        let contadorBanner = parseInt(contadorBannerElement.textContent);
+        let contadorBanner = parseInt(contadorBannerElement.textContent); // Valor inicial del contador
 
-        // Función que actualiza el valor del contador en el banner y en el botón
+        // Variables para manejar los intervalos y el estado de los contadores
+        let intervalo, intervaloBanner;
+
+        // Función que actualiza el contador en el banner y en el botón
         function actualizarContador() {
-            // Actualizamos el contador en el banner
-            contadorBannerElement.textContent = contadorBanner;
-            // Replicamos el contador en el botón
-            botonContadorElement.textContent = "Contador del banner: " + contadorBanner;
+            contadorBannerElement.textContent = contadorBanner;  // Actualizar el contador en el banner
+            botonContadorElement.textContent = "Contador del banner: " + contadorBanner;  // Actualizar el contador en el botón
         }
 
         // Función para realizar el cuenta atrás
@@ -83,8 +83,18 @@
             }
         }
 
-        // Iniciar el contador (con intervalo de 1 segundo)
-        let intervalo = setInterval(cuentaAtras, 1000); // Comienza la cuenta atrás cuando se carga la página
+        // Función para detectar si el contador en el banner ha empezado a contar
+        function detectarContadorBanner() {
+            // Si el contador en el banner ha comenzado (por ejemplo, es diferente a su valor inicial)
+            if (parseInt(contadorBannerElement.textContent) !== 10) {
+                contadorBanner = parseInt(contadorBannerElement.textContent); // Sincronizar con el valor del contador del banner
+                intervalo = setInterval(cuentaAtras, 1000); // Iniciar la cuenta atrás de tu página
+                clearInterval(intervaloBanner); // Detenemos la comprobación continua una vez iniciado el contador
+            }
+        }
+
+        // Intervalo para verificar si el contador en el banner ha comenzado a contar
+        intervaloBanner = setInterval(detectarContadorBanner, 1000); // Comprobar cada segundo si el contador ha comenzado
 
         // Inicializar el botón con el valor del contador al inicio
         actualizarContador();
